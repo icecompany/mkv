@@ -38,4 +38,14 @@ class MkvHelper
         $arr = [-2 => '#FF0000', 1 => '#008000', 2 => '#0000FF', 3 => '#000000'];
         return $arr[$status];
     }
+
+    public static function getContractSmallTitle(string $number, string $date = ''): string
+    {
+        if (!empty($date)) {
+            return JText::sprintf('COM_MKV_CONTRACT_TITLE_NUMBER_DATE', $number, $date);
+        }
+        else {
+            return JText::sprintf('COM_MKV_CONTRACT_TITLE_NUMBER', $number);
+        }
+    }
 }
