@@ -3,6 +3,16 @@ defined('_JEXEC') or die;
 
 class MkvHelper
 {
+    public static function getGroupUsers(int $groupID): array
+    {
+        $db = JFactory::getDbo();
+        $query = $db->getQuery(true);
+        $query
+            ->select("user_id")
+            ->from("#__user_usergroup_map")
+            ->where("group_id = {$db->q($groupID)}");
+        return $db->setQuery($query)->loadColumn() ?? [];
+    }
     /**
      * Возвращает только фамилию из ФИО
      *
