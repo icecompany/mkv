@@ -62,4 +62,10 @@ class MkvHelper
             return JText::sprintf('COM_MKV_CONTRACT_TITLE_NUMBER', $number);
         }
     }
+
+    public static function getConfig(string $param, $default = null)
+    {
+        $config = JComponentHelper::getParams("com_mkv");
+        return $config->get($param, $default);
+    }
 }
