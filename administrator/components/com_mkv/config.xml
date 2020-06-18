@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	<fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
-		<field name="rules"
-			   type="rules"
-			   label="JCONFIG_PERMISSIONS_LABEL"
-			   filter="rules"
-			   component="com_mkv"
-			   section="component">
-		</field>
-	</fieldset>
+    <fieldset name="default" label="COM_MKV_CONFIGURATION_DEFAULT_LABEL"
+              description="COM_MKV_CONFIGURATION_DEFAULT_DESC">
+        <field name="default_project"
+               type="integer"
+               first="1"
+               last="100"
+               step="1"
+               filter="integer"
+               default="11"
+               label="COM_MKV_CONFIGURATION_DEFAULT_DEFAULT_PROJECT_LABEL"
+               description="COM_MKV_CONFIGURATION_DEFAULT_DEFAULT_PROJECT_DESC"
+        />
+    </fieldset>
+    <fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
+        <field name="rules"
+               type="rules"
+               label="JCONFIG_PERMISSIONS_LABEL"
+               filter="rules"
+               component="com_mkv"
+               section="component">
+        </field>
+    </fieldset>
 </config>

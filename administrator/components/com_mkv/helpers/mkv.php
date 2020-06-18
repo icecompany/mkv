@@ -3,6 +3,10 @@ defined('_JEXEC') or die;
 
 class MkvHelper
 {
+    public static function addSubmenu()
+    {
+
+    }
     public static function getGroupUsers(int $groupID): array
     {
         $db = JFactory::getDbo();
