@@ -12,6 +12,13 @@
                label="COM_MKV_CONFIGURATION_DEFAULT_DEFAULT_PROJECT_LABEL"
                description="COM_MKV_CONFIGURATION_DEFAULT_DEFAULT_PROJECT_DESC"
         />
+        <field
+                name="accountant_group_id"
+                type="usergroup"
+                label="COM_MKV_CONFIGURATION_ACCOUNTANT_GROUP_ID_LABEL"
+                description="COM_MKV_CONFIGURATION_ACCOUNTANT_GROUP_ID_DESC"
+                class="span12"
+        />
     </fieldset>
     <fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
         <field name="rules"
