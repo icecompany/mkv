@@ -50,7 +50,7 @@ class MkvHelper
     public static function getTaskColor(int $status): string
     {
         $arr = [-2 => '#FF0000', 1 => '#008000', 2 => '#0000FF', 3 => '#000000'];
-        return $arr[$status];
+        return $arr[$status] ?? $arr[3];
     }
 
     public static function getContractSmallTitle(string $number, string $date = ''): string
