@@ -69,3 +69,7 @@ class MkvHelper
         return $config->get($param, $default);
     }
 }
+
+define('MKV_FORMAT_DEC_COUNT', MkvHelper::getConfig('dec_count', 2));
+define('MKV_FORMAT_SEPARATOR_DEC', MkvHelper::getConfig('separator_dec', ' '));
+define('MKV_FORMAT_SEPARATOR_FRACTION', MkvHelper::getConfig('separator_fraction', ','));
