@@ -19,6 +19,15 @@
                 description="COM_MKV_CONFIGURATION_ACCOUNTANT_GROUP_ID_DESC"
                 class="span12"
         />
+        <field
+                name="directors_group_id"
+                type="usergroup"
+                label="COM_MKV_CONFIGURATION_DEFAULT_GROUP_DIRECTORS_LABEL"
+                description="COM_MKV_CONFIGURATION_DEFAULT_GROUP_DIRECTORS_DESC"
+                required="true"
+                component="com_prj"
+                section="component"
+        />
     </fieldset>
     <fieldset name="format" label="COM_MKV_CONFIGURATION_FORMAT_LABEL" description="COM_MKV_CONFIGURATION_FORMAT_DESC">
         <field name="dec_count"
