@@ -63,9 +63,18 @@ class MkvModelEvents extends ListModel
             $arr['action'] = JText::sprintf("COM_MKV_HISTORY_ACTION_{$action}");
             $arr['old_data'] = (!empty($item->old_data)) ? json_decode($item->old_data, true) : [];
             $arr['new_data'] = (!empty($item->new_data)) ? json_decode($item->new_data, true) : [];
+            $arr['manager'] = MkvHelper::getLastAndFirstNames($item->manager);
+            $arr['show_link'] = JHtml::link($this->getShowUri($item->id), JText::sprintf('COM_MKV_HEAD_VERSION_SHOW'));
             $result[] = $arr;
         }
         return $result;
+    }
+
+    private function getShowUri(int $id): string
+    {
+        $uri = JUri::getInstance();
+        $uri->setVar('version', $id);
+        return $uri->toString();
     }
 
     /* Сортировка по умолчанию */
