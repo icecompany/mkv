@@ -68,6 +68,54 @@ class MkvHelper
         $config = JComponentHelper::getParams("com_mkv");
         return $config->get($param, $default);
     }
+
+    public static function getSortedFields(array $heads = [], array $filter = []): array
+    {
+        if (empty($heads) && empty($filter)) return [];
+
+        $result = [];
+        foreach ($heads as $field => $params) if (isset($params['column']) && !empty($params['column'])) $result[] = $params['column'];
+        if (!empty($filter)) $result = array_merge($result, $filter);
+        return $result;
+    }
+
+    public static function formatField($type = '', $value = '', $itemID = 0, $return = '', $export = false)
+    {
+        if ($type === '') return $value;
+        switch ($type) {
+            case 'manager': {
+                return self::getLastAndFirstNames($value);
+            }
+            case 'date': {
+                return (!empty($value)) ? JDate::getInstance($value)->format("d.m.Y") : '';
+            }
+            case 'status': {
+                $status = $value ?? JText::sprintf('COM_MKV_STATUS_IN_PROJECT');
+                if ($export) return $status;
+                $url = JRoute::_("index.php?option=com_contracts&amp;task=contract.edit&amp;id={$itemID}&amp;return={$return}");
+                return JHtml::link($url, $status);
+            }
+            case 'company': {
+                if ($export) return $value;
+                $url = JRoute::_("index.php?option=com_companies&amp;task=company.edit&amp;id={$itemID}&amp;return={$return}");
+                return JHtml::link($url, $value);
+            }
+            case 'contact': {
+                if ($export) return $value;
+                $url = JRoute::_("index.php?option=com_companies&amp;task=contact.edit&amp;id={$itemID}&amp;return={$return}");
+                return JHtml::link($url, $value);
+            }
+            case 'email': {
+                if ($export) return $value;
+                return JHtml::link("mailto:{$value}", $value);
+            }
+            case 'phone': {
+                if ($export) return $value;
+                return $value;
+            }
+            default: return $value;
+        }
+    }
 }
 
 define('MKV_FORMAT_DEC_COUNT', MkvHelper::getConfig('dec_count', 2));
