@@ -113,8 +113,40 @@ class MkvHelper
                 if ($export) return $value;
                 return $value;
             }
+            case 'money_usd': {
+                $money = self::getMoney($value, $export);
+                if ($export) return $money;
+                return JText::sprintf("COM_MKV_AMOUNT_USD_SHORT", $money);
+            }
+            case 'money_eur': {
+                $money = self::getMoney($value, $export);
+                if ($export) return $money;
+                return JText::sprintf("COM_MKV_AMOUNT_EUR_SHORT", $money);
+            }
+            case 'money_rub': {
+                $money = self::getMoney($value, $export);
+                if ($export) return $money;
+                return JText::sprintf("COM_MKV_AMOUNT_RUB_SHORT", $money);
+            }
             default: return $value;
         }
+    }
+
+    public static function getMoney(float $value, bool $export)
+    {
+        return number_format(
+            (float) $value,
+            MKV_FORMAT_DEC_COUNT,
+            MKV_FORMAT_SEPARATOR_FRACTION,
+            (!$export) ? MKV_FORMAT_SEPARATOR_DEC : ''
+        );
+    }
+
+    public static function getMailer() {
+        $mailer = JFactory::getMailer();
+        $mailer->isHtml(true);
+        $mailer->setFrom("xakepok@xakepok.com", "MKV");
+        return $mailer;
     }
 }
 
