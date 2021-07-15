@@ -153,3 +153,17 @@ class MkvHelper
 define('MKV_FORMAT_DEC_COUNT', MkvHelper::getConfig('dec_count', 2));
 define('MKV_FORMAT_SEPARATOR_DEC', MkvHelper::getConfig('separator_dec', ' '));
 define('MKV_FORMAT_SEPARATOR_FRACTION', MkvHelper::getConfig('separator_fraction', ','));
+const MKV_COMPONENT_COMPANIES = JPATH_ADMINISTRATOR . "/components/com_companies";
+const MKV_COMPONENT_COMPANIES_MODELS = MKV_COMPONENT_COMPANIES . "/models";
+const MKV_COMPONENT_CONTRACTS = JPATH_ADMINISTRATOR . "/components/com_contracts";
+const MKV_COMPONENT_CONTRACTS_MODELS = MKV_COMPONENT_CONTRACTS . "/models";
+const MKV_COMPONENT_PROJECTS = JPATH_ADMINISTRATOR . "/components/com_prj";
+const MKV_COMPONENT_PROJECTS_MODELS = MKV_COMPONENT_PROJECTS . "/models";
+const MKV_COMPONENT_SCHEDULER = JPATH_ADMINISTRATOR . "/components/com_scheduler";
+const MKV_COMPONENT_SCHEDULER_MODELS = MKV_COMPONENT_SCHEDULER . "/models";
+const MKV_COMPONENT_REPORTS = JPATH_ADMINISTRATOR . "/components/com_reports";
+const MKV_COMPONENT_REPORTS_MODELS = JPATH_ADMINISTRATOR . "/models";
+const MKV_COMPONENT_PRICES = JPATH_ADMINISTRATOR . "/components/com_prices";
+const MKV_COMPONENT_PRICES_MODELS = MKV_COMPONENT_PRICES . "/models";
+const MKV_COMPONENT_STANDS = JPATH_ADMINISTRATOR . "/components/com_stands";
+const MKV_COMPONENT_STANDS_MODELS = MKV_COMPONENT_STANDS . "/models";
